@@ -7,8 +7,8 @@ process TCRDOCK_SAMPLESHEET_PARSE {
     def PANDAS_VERSION = '1.4.3'
     conda "conda-forge::pandas=$PANDAS_VERSION"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/pandas:' :
-        'quay.io/biocontainers/pandas:' }$PANDAS_VERSION"
+        'oras://community.wave.seqera.io/library/pandas:2.2.3--9b034ee33172d809' :
+        'community.wave.seqera.io/library/pandas:2.2.3--9b034ee33172d809' }"
 
     input:
     path samplesheet
